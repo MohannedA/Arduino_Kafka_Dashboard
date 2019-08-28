@@ -1,0 +1,175 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/chart_factory.js"></script>
+    <script src="js/index.js"></script>
+    <title>THGS Dashboard</title>
+</head>
+<body>
+    <header>
+        <img src="http://www.psu.edu.sa/_Layouts/15/PSU/Design/en/images/nodata.png" alt="PSU Logo" style="width:auto">
+        <img src="http://riotu.psu.edu.sa/images/riotu-logo-w.png" alt="RIOTU Logo" style="width:auto; padding-left:15px">
+        <h1>THGS Dashboard</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row c-center">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4" style="">
+                        <div class="card" style="width: 18rem;" id="temperatureDiv">
+                            <img class="card-img-top" id="temperatureImage" src="images/temperature.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><span id="temperatureValue">0</span><sub>C</sub></h5>
+                                <p class="card-text">Temperature</p>
+                                <button class="btn btn-default" id="temperatureButton">Disable</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4" style="">
+                            <div class="card" style="width: 18rem;" id="humidityDiv">
+                                <img class="card-img-top" id="humidityImage" src="images/humidity.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><span id="humidityValue">0</span><sub>g/m<sup>3</sup></sub></h5>
+                                    <p class="card-text">Humidity</p>
+                                    <button class="btn btn-default" id="humidityButton">Disable</button>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row c-center">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4" style="margin:auto;">
+                        <div class="card" style="width: 18rem;" id="gasDiv">
+                            <img class="card-img-top" src="images/gas.png" alt="Card image cap" id="gasImage">
+                            <div class="card-body">
+                                <h5 class="card-title"><span id="gasValue">0</span><sub>m<sup>3</sup></sub></h5>
+                                <p class="card-text">Gas</p>
+                                <button class="btn btn-default" id="gasButton">Disable</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4" style="margin:auto;">
+                        <div class="card" style="width: 18rem;" id="soundDiv">
+                            <img class="card-img-top" id="soundImage" src="images/sound.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><span id="soundValue">0</span><sub>dB</sub></h5>
+                                <p class="card-text">Sound</p>
+                                <button class="btn btn-default" id="soundButton">Disable</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center;  position: relative; margin-top: 20px;">
+            <span style="font-size: 30px; background-color: #F3F5F6; padding: 0 10px; border-radius: 20px;">
+              Graphs
+            </span>
+        </div>
+        <div class="row">
+            <div class="chart-container col-lg-6 ">
+                <div class="classWithPad" style="background-color:white;">
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container col-lg-6">
+                <div class="classWithPad" style="background-color:white;">
+                    <canvas id="humidityChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="chart-container col-lg-6">
+                <div class="classWithPad" style="background-color:white;">
+                    <canvas id="gasChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container col-lg-6">
+                <div class="classWithPad" style="background-color:white;">
+                    <canvas id="soundChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center;  position: relative; margin-top: 20px;">
+        <span style="font-size: 30px; background-color: #F3F5F6; padding: 0 10px; border-radius: 20px;">
+          Map
+        </span>
+    </div>
+    <div id="map" style="position:relative; height: 100%; width: 100%; margin-top: 100px;"></div>
+    <script>
+
+        function initMap() {
+          var centerPose = {lat: 24.713480, lng: 46.674987};
+          var n1PoseT = {lat: 24.729175, lng: 46.660559};
+          var n1PoseH = {lat: 24.724947, lng: 46.669220};
+          var n2PoseT = {lat: 24.761776, lng: 46.740189};
+          var n2PoseS = {lat: 24.754477, lng: 46.731105};
+          var n3Pose = {lat: 24.645631, lng: 46.699013};
+  
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: centerPose
+          });
+  
+  
+          var createMarker = (latlng, imgUrl, text) => {
+            var icon = {
+              url: imgUrl, // url
+              scaledSize: new google.maps.Size(50, 50), // scaled size
+              origin: new google.maps.Point(0,0), // origin
+              anchor: new google.maps.Point(0, 0), // anchor
+              labelOrigin: new google.maps.Point(16,64)
+            };
+  
+            var label = {
+              text: text,
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "16px",
+            }
+  
+            var marker = new google.maps.Marker({
+              position: latlng,
+              map: map,
+              title: text,
+              icon: icon,
+              label: label
+            });
+          }
+  
+          var hMarker = createMarker(n1PoseH, "images/humidity.png", "Humidity");
+          var t1Marker = createMarker(n1PoseT, "images/temperature.png", "Temperature");
+          var t2Marker = createMarker(n2PoseT, "images/temperature.png", "Temperature");
+          var sMarker = createMarker(n2PoseS, "images/sound.png", "Sound");
+          var gMarker = createMarker(n3Pose, "images/gas.png", "Gas");
+        }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApfmeb37l_yzsasVDpbBN9pdEmw0QxPns&callback=initMap">
+      </script>
+
+</body>
+</html>
