@@ -24,7 +24,7 @@ Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas
 - HTML, CSS, JS, and NodeJS: for web development.
 - MongoDB: for storing data.
 
-## Hardware Components
+### Hardware Components
 
 Sender: Gas + LoRa Shield             |  Sender: Humidity + Temperature + LoRa Shield               |  Sender: Temperature + Sound + LoRa Shield             |    Receiver: LoRa Shield 
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
