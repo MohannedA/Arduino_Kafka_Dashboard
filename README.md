@@ -2,7 +2,7 @@
 
 ![screenshot.png](Images/All.jpeg)
 
-Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas, and sound Arduino sensors via using Kafka (stream-processing software platform) 
+Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas, and sound Arduino sensors via using Kafka (stream-processing software platform).
 
 ## About The Project
 
