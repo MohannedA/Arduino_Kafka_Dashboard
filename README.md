@@ -26,9 +26,9 @@ Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas
 
 ## Hardware Components
 
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![d]('/Images/')  |  ![d](/Images/screenshot.png)
+Sender: Gas + LoRa Shield             |  Sender: Humidity + Temperature + LoRa Shield               |  Sender: Temperature + Sound + LoRa Shield             |    Receiver: LoRa Shield 
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![s](/Images/GasNode.jpeg)  |  ![s](/Images/HTNode.jpeg)  |  ![s](/Images/TSNode.jpeg)  |  ![s](/Images/Receiver.jpeg)
 
 ### Architecture
 
