@@ -1,10 +1,11 @@
 # Arduino Kafka Dashboard
 
-![screenshot.png](Images/screenshot.png)
+![screenshot.png](Images/All.jpeg)
 
 Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas, and sound Arduino sensors via using Kafka (stream-processing software platform) 
+## About The Project
 
-## Basic Idea
+### Basic Idea
 
 - There are three LoRa nodes, each node send sensor(s) data every 5 seconds.
 - LoRa receiver receive data from nodes, and send via serial to gateway.
@@ -14,13 +15,27 @@ Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas
 - Also, it will be saved to MongoDB.
 - Nodes places are shown in Google Map. 
 
-## Architecture
+### Technologies Used
+
+- Arduino: for hardware components.
+- LoRa: for networking.
+- Kafka: for stream-processing.
+- HTML, CSS, JS, and NodeJS: for web development. 
+
+
+
+### Architecture
 
 ![architecture.jpg](Images/architecture.jpg)
 
+## Prerequisites
+
+- NodeJS
+- Zookeeper and Kafka
+
 ## Usage 
 
-- To run the software, first, run the zookeeper and kafka.
+- To run the software, first, run the Zookeeper and Kafka.
 - Run the producer file: `$ node server /kafka/producer.js`.
 - Run the server which is considered as a consumer in the same
 time: `$ node server /server.js`.
