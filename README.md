@@ -3,6 +3,7 @@
 ![screenshot.png](Images/All.jpeg)
 
 Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas, and sound Arduino sensors via using Kafka (stream-processing software platform) 
+
 ## About The Project
 
 ### Basic Idea
@@ -23,14 +24,15 @@ Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas
 - HTML, CSS, JS, and NodeJS: for web development.
 - MongoDB: for storing data.
 
+## Hardware Components
+
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![d]('/Images/')  |  ![d](/Images/screenshot.png)
+
 ### Architecture
 
 ![architecture.jpg](Images/architecture.jpg)
-
-## Prerequisites
-
-- NodeJS
-- Zookeeper and Kafka
 
 ## Usage 
 
@@ -42,3 +44,9 @@ time: `$ node server /server.js`.
 - Run mongodb server: `$ mongod --dbpath ~ /mongo-data/`.
 - Now run: `$ node server /kafka/cloud-mongodb.js` to run the
 program responsible to storing the data on mongodb.
+
+## Authors
+
+- Bassel Saeed
+- Abdulrhman AlSharqawi 
+- Mohanned Ahmed
