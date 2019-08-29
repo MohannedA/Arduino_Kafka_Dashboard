@@ -20,9 +20,8 @@ Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas
 - Arduino: for hardware components.
 - LoRa: for networking.
 - Kafka: for stream-processing.
-- HTML, CSS, JS, and NodeJS: for web development. 
-
-
+- HTML, CSS, JS, and NodeJS: for web development.
+- MongoDB: for storing data.
 
 ### Architecture
 
