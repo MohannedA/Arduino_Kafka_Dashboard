@@ -1,6 +1,6 @@
 # Arduino Kafka Dashboard
 
-![THGS-Dashboard.png](Images/THGS Dashboard.png)
+![screenshot.png](Images/screenshot.png)
 
 Simple dashboard (follows MVC pattern) for monitoring temperature, humidity, gas, and sound Arduino sensors via using Kafka (stream-processing software platform) 
 
