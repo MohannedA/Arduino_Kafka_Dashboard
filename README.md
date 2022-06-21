@@ -45,8 +45,7 @@ time: `$ node server /server.js`.
 - Now run: `$ node server /kafka/cloud-mongodb.js` to run the
 program responsible to storing the data on mongodb.
 
-## Authors
+## Other Authors
 
 - Bassel Saeed
 - Abdulrhman AlSharqawi 
-- Mohanned Ahmed
